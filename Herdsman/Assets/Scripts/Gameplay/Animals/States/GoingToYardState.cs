@@ -7,6 +7,7 @@ namespace Gameplay.Animals.States
     {
         private readonly SheepBase _sheep;
         private readonly Vector3 _yardPosition;
+        private readonly float _yardPointThreshold = 1f;
 
         public GoingToYardState(SheepBase sheep, Vector3 yardPosition)
         {
@@ -20,7 +21,7 @@ namespace Gameplay.Animals.States
 
         public void Execute()
         {
-            if (Vector3.Distance(_sheep.transform.position, _yardPosition) < 0.1f)
+            if (Vector3.Distance(_sheep.transform.position, _yardPosition) < _yardPointThreshold)
             {
                 _sheep.SheepManager.IncrementSheepInYardCount();
                 _sheep.ChangeState(new IdleState(_sheep));

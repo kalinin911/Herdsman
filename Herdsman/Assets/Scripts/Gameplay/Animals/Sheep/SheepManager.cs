@@ -15,6 +15,7 @@ namespace Gameplay.Animals.Sheep
         [SerializeField] int initialSheepCount = 10;
         [SerializeField] int maxSheepCount = 20;
         [SerializeField] int maxFollowingCount = 5;
+        [SerializeField] float patrolRadius = 10f;
         [SerializeField] float minSpawnInterval = 1f;
         [SerializeField] float maxSpawnInterval = 10f;
 
@@ -100,7 +101,7 @@ namespace Gameplay.Animals.Sheep
         private Vector3 GenerateNewPatrolPoint()
         {
             Vector2 randomDirection = UnityEngine.Random.insideUnitCircle.normalized;
-            Vector3 randomPoint = _playerTransform.position + (Vector3)randomDirection * 10f;
+            Vector3 randomPoint = _playerTransform.position + (Vector3)randomDirection * patrolRadius;
 
             return randomPoint;
         }
