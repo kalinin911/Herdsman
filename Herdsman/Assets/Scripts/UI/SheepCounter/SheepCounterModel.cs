@@ -1,5 +1,4 @@
-﻿
-namespace UI.SheepCounter
+﻿namespace UI.SheepCounter
 {
     public class SheepCounterModel
     {

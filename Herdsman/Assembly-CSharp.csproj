@@ -70,9 +70,12 @@
     <Compile Include="Assets\Scripts\UI\SheepCounter\SheepCounterView.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Animals\States\INPCState.cs" />
     <Compile Include="Assets\Scripts\Input\InputHandler.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Animals\Sheep\SheepManager.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Animals\States\FollowingState.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Animals\Sheep\WhiteSheepFactory.cs" />
     <Compile Include="Assets\Scripts\UI\SheepCounter\SheepCounterController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Movement\IMovementStrategy.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Animals\Sheep\ISheepFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

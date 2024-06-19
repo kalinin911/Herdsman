@@ -1,5 +1,4 @@
 ﻿using Gameplay.Animals.Sheep;
-using System;
 
 namespace Gameplay.Animals.States
 {
@@ -19,7 +18,7 @@ namespace Gameplay.Animals.States
 
         public void Execute()
         {
-            if (_sheep.PlayerInRange())
+            if (_sheep.PlayerInRange() && _sheep.SheepManager.CanFollowPlayer())
             {
                 _sheep.ChangeState(new FollowingState(_sheep));
             }

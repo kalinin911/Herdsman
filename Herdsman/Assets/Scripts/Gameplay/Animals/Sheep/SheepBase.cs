@@ -7,10 +7,12 @@ namespace Gameplay.Animals.Sheep
 {
     public abstract class SheepBase : MonoBehaviour
     {
+        public SheepManager SheepManager;
+
         protected float speed = 1.5f;
-        protected float followRange = 5f;
+        protected float followRange = 3f;
         protected float patrolRadius = 2f;
-        protected float followTreshold = 2.5f;
+        protected float followTreshold = 2f;
         protected int patrolPointsMaxAmount = 10;
         protected int currentWaypointIndex;
         protected Transform playerTransform;
@@ -57,12 +59,7 @@ namespace Gameplay.Animals.Sheep
 
         public bool PlayerInRange()
         {
-            if(playerTransform == null)
-            {
-                return false;
-            }
-
-            return Vector2.Distance(transform.position, playerTransform.position) < followRange;
+             return Vector2.Distance(transform.position, playerTransform.position) < followRange;
         }
 
         public void MoveTowardsWaypoint()

@@ -1,5 +1,4 @@
 ﻿using Gameplay.Animals.Sheep;
-using System;
 
 namespace Gameplay.Animals.States
 {
@@ -10,6 +9,7 @@ namespace Gameplay.Animals.States
         public FollowingState(SheepBase sheep)
         {
             _sheep = sheep;
+            _sheep.SheepManager.IncrementFollowingCount();
         }
 
         public void Enter()
@@ -26,6 +26,7 @@ namespace Gameplay.Animals.States
 
         public void Exit()
         {
+            _sheep.SheepManager.DecrementFollowingCount();
         }
     }
 }
