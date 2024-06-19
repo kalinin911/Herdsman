@@ -14,7 +14,6 @@ namespace Gameplay.Animals.States
 
         public void Enter()
         {
-            Console.WriteLine("Entering following state");
         }
 
         public void Execute()
@@ -27,7 +26,6 @@ namespace Gameplay.Animals.States
 
         public void Exit()
         {
-            Console.WriteLine("Exiting following state");
         }
     }
 }

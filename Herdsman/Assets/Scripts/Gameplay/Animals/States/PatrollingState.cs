@@ -1,5 +1,6 @@
 ﻿using Gameplay.Animals.Sheep;
 using System;
+
 namespace Gameplay.Animals.States
 {
     public class PatrollingState : INPCState
@@ -12,8 +13,7 @@ namespace Gameplay.Animals.States
         }
 
         public void Enter()
-        {
-            Console.WriteLine("Entering patrolling state");
+        {;
             _sheep.SetNextWaypoint();
         }
 
@@ -38,7 +38,6 @@ namespace Gameplay.Animals.States
 
         public void Exit()
         {
-            Console.WriteLine("Exiting patrolling state");
         }
     }
 }
