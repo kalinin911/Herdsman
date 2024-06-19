@@ -62,14 +62,15 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Gameplay\Movement\LinearMovementStrategy.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Player\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\Gameplay\Animals\Sheep\SheepController.cs" />
     <Compile Include="Assets\Scripts\Input\PlayerInputActions.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Animals\Sheep\WhiteSheep.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Animals\Sheep\SheepBase.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Animals\States\PatrollingState.cs" />
     <Compile Include="Assets\Scripts\UI\SheepCounter\SheepCounterModel.cs" />
     <Compile Include="Assets\Scripts\UI\SheepCounter\SheepCounterView.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Animals\States\INPCState.cs" />
     <Compile Include="Assets\Scripts\Input\InputHandler.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\Animals\States\FollowingState.cs" />
     <Compile Include="Assets\Scripts\UI\SheepCounter\SheepCounterController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Movement\IMovementStrategy.cs" />
   </ItemGroup>

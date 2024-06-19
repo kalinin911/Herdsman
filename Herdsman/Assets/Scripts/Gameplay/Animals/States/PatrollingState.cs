@@ -1,17 +1,10 @@
 ﻿using Gameplay.Animals.Sheep;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Gameplay.Animals.States
 {
     public class PatrollingState : INPCState
     {
         private readonly SheepBase _sheep;
-        private int _currentWayPointIndex;
 
         public PatrollingState(SheepBase sheep)
         {
@@ -20,25 +13,32 @@ namespace Gameplay.Animals.States
 
         public void Enter()
         {
-            Debug.WriteLine("Entering patrolling state");
-            //_sheep.SetNextWaypoint();
+            Console.WriteLine("Entering patrolling state");
+            _sheep.SetNextWaypoint();
         }
 
         public void Execute()
         {
-            if (_sheep != null)
+            if (_sheep.PlayerInRange())
             {
-                //_sheep.SetNextWaypoint();
+                _sheep.ChangeState(new FollowingState(_sheep));
             }
+
+            if(_sheep.ReachedWaypoint())
+            {
+                _sheep.SetNextWaypoint();
+            }
+
             else
             {
-                //_sheep.MoveToWaypoint();
+                _sheep.MoveTowardsWaypoint();
             }
+
         }
 
         public void Exit()
         {
-            Debug.WriteLine("Exiting patrolling state");
+            Console.WriteLine("Exiting patrolling state");
         }
     }
 }

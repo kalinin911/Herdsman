@@ -46,7 +46,7 @@ namespace Gameplay.Player
         {
             _movementStrategy.Move(transform, _targetPos, MOVE_SPEED * Time.deltaTime);
 
-            if(Vector3.Distance(transform.position, _targetPos) < MOVE_TRESHOLD)
+            if (Vector3.Distance(transform.position, _targetPos) < MOVE_TRESHOLD)
             {
                 _isMoving = false;
             }
