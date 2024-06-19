@@ -555,6 +555,8 @@ MonoBehaviour:
   initialSheepCount: 10
   maxSheepCount: 20
   maxFollowingCount: 5
+  minSpawnInterval: 1
+  maxSpawnInterval: 10
 --- !u!1 &1259982876
 GameObject:
   m_ObjectHideFlags: 0
@@ -995,6 +997,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 3120447738417955173, guid: c9a73eb726f4933488a7a39352b895f5, type: 3}
+      propertyPath: m_text
+      value: YARD
+      objectReference: {fileID: 0}
     - target: {fileID: 5517811475401454110, guid: c9a73eb726f4933488a7a39352b895f5, type: 3}
       propertyPath: m_Name
       value: Barn

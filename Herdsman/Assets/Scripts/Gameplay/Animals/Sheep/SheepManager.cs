@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Gameplay.Animals.Sheep
@@ -10,11 +11,13 @@ namespace Gameplay.Animals.Sheep
         [SerializeField] int initialSheepCount = 10;
         [SerializeField] int maxSheepCount = 20;
         [SerializeField] int maxFollowingCount = 5;
-        [SerializeField] float sheepSpawnInterval = 10f;
+        [SerializeField] float minSpawnInterval = 1f;
+        [SerializeField] float maxSpawnInterval = 10f;
 
         private List<SheepBase> _sheeps;
         private ISheepFactory _factory;
         private int _currentFollowingCount = 0;
+        private Coroutine _spawnCoroutine;
 
         private void Start()
         {
@@ -25,8 +28,9 @@ namespace Gameplay.Animals.Sheep
             {
                 CreateNewSheep();
             }
-        }
 
+            _spawnCoroutine = StartCoroutine(SpawnSheepRoutine());
+        }
 
         public bool CanFollowPlayer()
         {
@@ -65,6 +69,15 @@ namespace Gameplay.Animals.Sheep
             Vector3 randomPoint = playerTransform.position + (Vector3)randomDirection * 10f;
 
             return randomPoint;
+        }
+
+        private IEnumerator SpawnSheepRoutine()
+        {
+            while (true)
+            {
+                yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
+                CreateNewSheep();
+            }
         }
     }
 

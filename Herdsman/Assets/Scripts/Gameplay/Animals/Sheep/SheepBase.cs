@@ -9,7 +9,7 @@ namespace Gameplay.Animals.Sheep
     {
         public SheepManager SheepManager;
 
-        protected float speed = 1.5f;
+        protected float speed = 2f;
         protected float followRange = 3f;
         protected float patrolRadius = 2f;
         protected float followTreshold = 2f;
