@@ -37,6 +37,11 @@ namespace Gameplay.Animals.Sheep
             currentState.Enter();
         }
 
+        public INPCState GetCurrentState()
+        {
+            return currentState;
+        }
+
         public void SetNextWaypoint()
         {
             currentWaypointIndex = (currentWaypointIndex + 1) % patrolPoints.Count;
@@ -59,18 +64,24 @@ namespace Gameplay.Animals.Sheep
 
         public bool PlayerInRange()
         {
-             return Vector2.Distance(transform.position, playerTransform.position) < followRange;
+            return Vector2.Distance(transform.position, playerTransform.position) < followRange;
+        }
+
+        public void MoveTowards(Vector3 position)
+        {
+            movementStrategy.Move(transform, position, speed * Time.deltaTime);
         }
 
         public void MoveTowardsWaypoint()
         {
-            movementStrategy.Move(transform, patrolPoints[currentWaypointIndex], speed * Time.deltaTime);
+            MoveTowards(patrolPoints[currentWaypointIndex]);
         }
 
         public void FollowPlayer()
         {
-            movementStrategy.Move(transform, playerTransform.position, speed * Time.deltaTime);
+            MoveTowards(playerTransform.position);
         }
+
 
         public void SetMovementStrategy(IMovementStrategy strategy)
         {

@@ -1,5 +1,4 @@
 ﻿using Gameplay.Animals.States;
-using UnityEngine;
 
 namespace Gameplay.Animals.Sheep
 {

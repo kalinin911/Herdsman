@@ -9,9 +9,9 @@
             get{return _amount;}
         }
 
-        public void IncrementAmount()
+        public void ChangeAmount(int newAmount)
         {
-            _amount++;
+            _amount = newAmount;
         }
     }
 }

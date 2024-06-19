@@ -14,9 +14,9 @@ namespace UI.SheepCounter
             _view.UpdateCounter(_model.Amount);
         }
 
-        private void IncrementAmount()
+        public void ChangeAmount(int newAmount)
         {
-            _model.IncrementAmount();
+            _model.ChangeAmount(newAmount);
             _view.UpdateCounter(_model.Amount);
         }
 

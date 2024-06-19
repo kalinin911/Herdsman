@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿using Gameplay.Animals.States;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +8,10 @@ namespace Gameplay.Animals.Sheep
 {
     public class SheepManager : MonoBehaviour
     {
-        [SerializeField] GameObject sheepPrefab;
-        [SerializeField] Transform playerTransform;
+        public event Action OnPlayerEnteredYard;
+        public event Action<int> OnSheepInYardChanged;
+
+        [SerializeField] GameObject sheepPrefab;       
         [SerializeField] int initialSheepCount = 10;
         [SerializeField] int maxSheepCount = 20;
         [SerializeField] int maxFollowingCount = 5;
@@ -17,7 +21,16 @@ namespace Gameplay.Animals.Sheep
         private List<SheepBase> _sheeps;
         private ISheepFactory _factory;
         private int _currentFollowingCount = 0;
+        private int _sheepInYardCount = 0;
         private Coroutine _spawnCoroutine;
+        private Transform _yardTransform;
+        private Transform _playerTransform;
+        
+        public void Init(Transform playerTransform, Transform yardTransform)
+        {
+            _yardTransform = yardTransform;
+            _playerTransform = playerTransform;
+        }
 
         private void Start()
         {
@@ -30,6 +43,21 @@ namespace Gameplay.Animals.Sheep
             }
 
             _spawnCoroutine = StartCoroutine(SpawnSheepRoutine());
+        }
+
+        private void OnEnable()
+        {
+            OnPlayerEnteredYard += HandlePlayerEnteredYard;
+        }
+
+        private void OnDisable()
+        {
+            OnPlayerEnteredYard -= HandlePlayerEnteredYard;
+        }
+
+        public void PlayerEnteredYard()
+        {
+            OnPlayerEnteredYard?.Invoke();
         }
 
         public bool CanFollowPlayer()
@@ -52,6 +80,12 @@ namespace Gameplay.Animals.Sheep
             _currentFollowingCount--;
         }
 
+        public void IncrementSheepInYardCount()
+        {
+            _sheepInYardCount++;
+            OnSheepInYardChanged?.Invoke(_sheepInYardCount);
+        }
+
         private void CreateNewSheep()
         {
             if (!CanSpawnMoreSheeps())
@@ -59,14 +93,14 @@ namespace Gameplay.Animals.Sheep
                 return;
             }
 
-            SheepBase sheepInstance = _factory.CreateSheep(GenerateNewPatrolPoint(), playerTransform, this);
+            SheepBase sheepInstance = _factory.CreateSheep(GenerateNewPatrolPoint(), _playerTransform, this);
             _sheeps.Add(sheepInstance);
         }
 
         private Vector3 GenerateNewPatrolPoint()
         {
-            Vector2 randomDirection = Random.insideUnitCircle.normalized;
-            Vector3 randomPoint = playerTransform.position + (Vector3)randomDirection * 10f;
+            Vector2 randomDirection = UnityEngine.Random.insideUnitCircle.normalized;
+            Vector3 randomPoint = _playerTransform.position + (Vector3)randomDirection * 10f;
 
             return randomPoint;
         }
@@ -75,8 +109,19 @@ namespace Gameplay.Animals.Sheep
         {
             while (true)
             {
-                yield return new WaitForSeconds(Random.Range(minSpawnInterval, maxSpawnInterval));
+                yield return new WaitForSeconds(UnityEngine.Random.Range(minSpawnInterval, maxSpawnInterval));
                 CreateNewSheep();
+            }
+        }
+
+        private void HandlePlayerEnteredYard()
+        {
+            foreach(var sheep in _sheeps)
+            {
+                if(sheep.GetCurrentState() is FollowingState)
+                {
+                    sheep.ChangeState(new GoingToYardState(sheep, _yardTransform.position));
+                }
             }
         }
     }
