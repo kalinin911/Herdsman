@@ -551,7 +551,6 @@ GameObject:
   m_Component:
   - component: {fileID: 943188451543919527}
   - component: {fileID: 2455301264529212937}
-  - component: {fileID: 8250346186726398046}
   m_Layer: 0
   m_Name: Body
   m_TagString: Player
@@ -630,29 +629,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!136 &8250346186726398046
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7534835152506133939}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &7682454634562870993
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,6 +638,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6662629062004188534}
+  - component: {fileID: 3172853581024496393}
   m_Layer: 0
   m_Name: MainHero
   m_TagString: Untagged
@@ -685,6 +662,18 @@ Transform:
   - {fileID: 943188451543919527}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3172853581024496393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7682454634562870993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 831876cbbb6079545b95797d44fd991f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7739903210992537803
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,7 +830,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 155685121
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5921569, g: 0.3764706, b: 0.043137256, a: 1}
   m_FlipX: 0
