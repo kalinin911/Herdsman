@@ -11,7 +11,7 @@ namespace Gameplay.Animals.Sheep
         public event Action OnPlayerEnteredYard;
         public event Action<int> OnSheepInYardChanged;
 
-        [SerializeField] GameObject sheepPrefab;       
+        [SerializeField] WhiteSheep sheepPrefab;       
         [SerializeField] int initialSheepCount = 10;
         [SerializeField] int maxSheepCount = 20;
         [SerializeField] int maxFollowingCount = 5;
@@ -35,7 +35,7 @@ namespace Gameplay.Animals.Sheep
 
         private void Start()
         {
-            _factory = new WhiteSheepFactory(sheepPrefab);
+            _factory = new WhiteSheepFactory();
             _sheeps = new List<SheepBase>();
 
             CreateFirstSheeps();
@@ -90,7 +90,7 @@ namespace Gameplay.Animals.Sheep
                 return;
             }
 
-            SheepBase sheepInstance = _factory.CreateSheep(GenerateNewPatrolPoint(), _playerTransform, this);
+            SheepBase sheepInstance = _factory.CreateSheep(sheepPrefab, GenerateNewPatrolPoint(), _playerTransform, this);
             _sheeps.Add(sheepInstance);
         }
        

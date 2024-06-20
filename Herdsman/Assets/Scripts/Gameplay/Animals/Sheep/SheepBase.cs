@@ -7,18 +7,18 @@ namespace Gameplay.Animals.Sheep
 {
     public abstract class SheepBase : MonoBehaviour
     {
-        public SheepManager SheepManager;
+        public SheepManager SheepManager { get; set; }
 
         protected float speed = 2f;
         protected float followRange = 3f;
         protected float patrolRadius = 2f;
         protected float followTreshold = 2f;
         protected int patrolPointsMaxAmount = 10;
-        protected int currentWaypointIndex;
-        protected Transform playerTransform;
+        protected int currentWaypointIndex = 0;
         protected List<Vector3> patrolPoints = new List<Vector3>();
         protected IMovementStrategy movementStrategy;
         protected IState currentState;
+        protected Transform playerTransform;
 
         protected virtual void Start()
         {

@@ -4,6 +4,6 @@ namespace Gameplay.Animals.Sheep
 {
     public interface ISheepFactory
     {
-        SheepBase CreateSheep(Vector3 spawnPoint, Transform playerTransform, SheepManager manager);
+        TSheep CreateSheep<TSheep>(TSheep sheep, Vector3 spawnPoint, Transform playerTransform, SheepManager manager) where TSheep : SheepBase;
     }
 }

@@ -4,21 +4,18 @@ namespace Gameplay.Animals.Sheep
 {
     public class WhiteSheepFactory : ISheepFactory
     {
-        private readonly GameObject _sheepPrefab;
-
-        public WhiteSheepFactory(GameObject sheepPrefab)
+        public WhiteSheepFactory()
         {
-            _sheepPrefab = sheepPrefab;
+
         }
 
-        public SheepBase CreateSheep(Vector3 spawnPoint, Transform playerTransform, SheepManager manager)
+        public TSheep CreateSheep<TSheep>(TSheep sheep, Vector3 spawnPoint, Transform playerTransform, SheepManager manager) where TSheep : SheepBase
         {
-            GameObject sheepObject = Object.Instantiate(_sheepPrefab, spawnPoint, Quaternion.identity);
-            WhiteSheep sheep = sheepObject.GetComponent<WhiteSheep>();
-            sheep.SetPlayerTransform(playerTransform);
-            sheep.SheepManager = manager;
-            sheep.SetPatrolPoints();
-            return sheep;
+            TSheep sheepObject = Object.Instantiate<TSheep>(sheep, spawnPoint, Quaternion.identity);
+            sheepObject.SetPlayerTransform(playerTransform);
+            sheepObject.SheepManager = manager;
+            sheepObject.SetPatrolPoints();
+            return sheepObject;
         }
     }
 }
