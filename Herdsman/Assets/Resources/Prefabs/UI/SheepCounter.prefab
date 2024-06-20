@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5413520470215748181}
   - component: {fileID: 3945899285659080408}
   - component: {fileID: 3981797909498672613}
-  - component: {fileID: 638692750116854777}
   m_Layer: 5
   m_Name: SheepCounter
   m_TagString: Untagged
@@ -78,19 +77,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e126d2c3ea48d8a4cb88630b63a27912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counterText: {fileID: 7826438670419463094}
---- !u!114 &638692750116854777
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3202957583565526568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9172a4a2512950a4c9f2438287edc849, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  counterText: {fileID: 1776710512715429560}
 --- !u!1 &4409369736774095031
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,17 +1,21 @@
-﻿namespace UI.SheepCounter
-{
-    public class SheepCounterWindowModel
-    {
-        private int _amount;
+﻿using Abstractions.MVC;
 
-        public int Amount
+namespace UI.SheepCounter
+{
+    public class SheepCounterWindowModel : IModel
+    {
+        public string AssetPath => "Prefabs/UI/SheepCounter";
+
+        public int Amount { get; set; }
+
+        public SheepCounterWindowModel(int initialAmount)
         {
-            get{return _amount;}
+            Amount = initialAmount;
         }
 
         public void ChangeAmount(int newAmount)
         {
-            _amount = newAmount;
+            Amount = newAmount;
         }
     }
 }

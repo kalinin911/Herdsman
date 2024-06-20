@@ -1,24 +1,24 @@
-﻿using UnityEngine;
+﻿using Abstractions.MVC;
+using UnityEngine;
 
 namespace UI.SheepCounter
 {
-    public class SheepCounterWindowController : MonoBehaviour
+    public class SheepCounterWindowController : ControllerBase<SheepCounterWindowModel, SheepCounterWindowView>
     {
-        private SheepCounterWindowModel _model;
-        private SheepCounterWindowView _view;
-
-        private void Start()
+        public SheepCounterWindowController(SheepCounterWindowModel model, Transform parent): base(model) 
         {
-            _model = new SheepCounterWindowModel();
-            _view = GetComponent<SheepCounterWindowView>();
-            _view.UpdateCounter(_model.Amount);
+            View.transform.SetParent(parent);
+        }
+
+        protected override void DoInitialize()
+        {
+            base.DoInitialize();
         }
 
         public void ChangeAmount(int newAmount)
         {
-            _model.ChangeAmount(newAmount);
-            _view.UpdateCounter(_model.Amount);
+            Model.ChangeAmount(newAmount);
+            View.UpdateCounter(Model.Amount);
         }
-
     }
 }

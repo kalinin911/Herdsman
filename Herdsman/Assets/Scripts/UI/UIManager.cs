@@ -6,24 +6,28 @@ namespace UI
 {
     public class UIManager : MonoBehaviour
     {
-        [SerializeField] SheepCounterWindowController sheepCounterController;
+        [SerializeField] Transform windowParent;
 
+        private SheepCounterWindowController _sheepCounterController;
         private SheepManager _sheepManager;
 
         public void Initialize(SheepManager sheepManager)
         {
             _sheepManager = sheepManager;
-            gameObject.SetActive(true);
-        }
+            CreateNewSheepCounter();
+            _sheepManager.OnSheepInYardChanged += _sheepCounterController.ChangeAmount;
 
-        private void OnEnable()
-        {
-            _sheepManager.OnSheepInYardChanged += sheepCounterController.ChangeAmount;
         }
 
         private void OnDisable()
         {
-            _sheepManager.OnSheepInYardChanged -= sheepCounterController.ChangeAmount;
+            _sheepManager.OnSheepInYardChanged -= _sheepCounterController.ChangeAmount;
+        }
+
+        private void CreateNewSheepCounter()
+        {
+            var model = new SheepCounterWindowModel(0);
+            _sheepCounterController = new SheepCounterWindowController(model, windowParent);
         }
     }
 }
