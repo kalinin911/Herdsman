@@ -34,9 +34,5 @@ namespace Gameplay.Animals.States
             }
 
         }
-
-        public void Exit()
-        {
-        }
     }
 }

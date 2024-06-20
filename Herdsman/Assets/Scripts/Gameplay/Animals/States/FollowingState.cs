@@ -12,10 +12,6 @@ namespace Gameplay.Animals.States
             _sheep.SheepManager.IncrementFollowingCount();
         }
 
-        public void Enter()
-        {
-        }
-
         public void Execute()
         {
             if (!_sheep.ReachedPlayer())

@@ -15,25 +15,17 @@ namespace Gameplay.Animals.States
             _yardPosition = yardPosition;
         }
 
-        public void Enter()
-        {
-        }
-
         public void Execute()
         {
             if (Vector3.Distance(_sheep.transform.position, _yardPosition) < _yardPointThreshold)
             {
                 _sheep.SheepManager.IncrementSheepInYardCount();
-                _sheep.ChangeState(new IdleState(_sheep));
+                _sheep.ChangeState(new IdleState());
             }
             else
             {
                 _sheep.MoveTowards(_yardPosition);
             }
-        }
-
-        public void Exit()
-        {
         }
     }
 }

@@ -2,8 +2,19 @@
 {
     public interface IState
     {
-        void Enter();
-        void Execute();
-        void Exit();
+        virtual void Enter()
+        {
+
+        }
+
+        virtual void Execute()
+        {
+
+        }
+
+        virtual void Exit()
+        {
+
+        }
     }
 }
