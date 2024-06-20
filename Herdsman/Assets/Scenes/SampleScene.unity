@@ -428,10 +428,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12605aa39b4a8fa4ba145055bc63c540, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sheepPrefab: {fileID: 1792917015369995530, guid: 0686d6b7821420c4b909dcba88c87059, type: 3}
+  sheepPrefab: {fileID: 7390052132176328292, guid: 0686d6b7821420c4b909dcba88c87059, type: 3}
   initialSheepCount: 10
   maxSheepCount: 20
   maxFollowingCount: 5
+  patrolRadius: 10
   minSpawnInterval: 1
   maxSpawnInterval: 10
 --- !u!114 &1112924616
