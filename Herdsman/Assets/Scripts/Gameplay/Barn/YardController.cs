@@ -5,7 +5,7 @@ public class YardController : MonoBehaviour
 {
     private SheepManager _sheepManager;
 
-    public void Init(SheepManager sheepManager)
+    public void Initialize(SheepManager sheepManager)
     {
         _sheepManager = sheepManager;
     }

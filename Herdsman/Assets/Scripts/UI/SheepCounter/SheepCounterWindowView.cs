@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UI.SheepCounter
 {
-    public class SheepCounterView : MonoBehaviour
+    public class SheepCounterWindowView : MonoBehaviour
     {
         [SerializeField] private TextMeshProUGUI counterText;
 

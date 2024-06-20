@@ -2,15 +2,15 @@
 
 namespace UI.SheepCounter
 {
-    public class SheepCounterController : MonoBehaviour
+    public class SheepCounterWindowController : MonoBehaviour
     {
-        private SheepCounterModel _model;
-        private SheepCounterView _view;
+        private SheepCounterWindowModel _model;
+        private SheepCounterWindowView _view;
 
         private void Start()
         {
-            _model = new SheepCounterModel();
-            _view = GetComponent<SheepCounterView>();
+            _model = new SheepCounterWindowModel();
+            _view = GetComponent<SheepCounterWindowView>();
             _view.UpdateCounter(_model.Amount);
         }
 

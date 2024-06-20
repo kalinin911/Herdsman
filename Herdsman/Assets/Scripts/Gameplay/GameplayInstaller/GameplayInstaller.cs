@@ -10,13 +10,13 @@ namespace Gameplay.GameplayInstaller
         [SerializeField] SheepManager sheepManager;
         [SerializeField] PlayerController playerController;
         [SerializeField] YardController yardController;
-        [SerializeField] UIController uiController;
+        [SerializeField] UIManager uiController;
 
         private void Awake()
         {  
-            sheepManager.Init(playerController.transform, yardController.transform);
-            yardController.Init(sheepManager);
-            uiController.Init(sheepManager);
+            sheepManager.Initialize(playerController.transform, yardController.transform);
+            yardController.Initialize(sheepManager);
+            uiController.Initialize(sheepManager);
         }
     }
 }

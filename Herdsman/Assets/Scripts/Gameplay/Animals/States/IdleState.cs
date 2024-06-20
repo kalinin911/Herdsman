@@ -2,7 +2,7 @@
 
 namespace Gameplay.Animals.States
 {
-    public class IdleState : INPCState
+    public class IdleState : IState
     {
         private readonly SheepBase _sheep;
 

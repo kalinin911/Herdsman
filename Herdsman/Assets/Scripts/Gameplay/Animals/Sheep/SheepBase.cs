@@ -18,7 +18,7 @@ namespace Gameplay.Animals.Sheep
         protected Transform playerTransform;
         protected List<Vector3> patrolPoints = new List<Vector3>();
         protected IMovementStrategy movementStrategy;
-        protected INPCState currentState;
+        protected IState currentState;
 
         protected virtual void Start()
         {
@@ -30,14 +30,14 @@ namespace Gameplay.Animals.Sheep
             currentState?.Execute();
         }
 
-        public void ChangeState(INPCState newState)
+        public void ChangeState(IState newState)
         {
             currentState?.Exit();
             currentState = newState;
             currentState.Enter();
         }
 
-        public INPCState GetCurrentState()
+        public IState GetCurrentState()
         {
             return currentState;
         }

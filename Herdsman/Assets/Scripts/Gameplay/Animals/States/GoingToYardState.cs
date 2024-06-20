@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Gameplay.Animals.States
 {
-    public class GoingToYardState : INPCState
+    public class GoingToYardState : IState
     {
         private readonly SheepBase _sheep;
         private readonly Vector3 _yardPosition;

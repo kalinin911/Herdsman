@@ -1,6 +1,6 @@
 ﻿namespace Gameplay.Animals.States
 {
-    public interface INPCState
+    public interface IState
     {
         void Enter();
         void Execute();

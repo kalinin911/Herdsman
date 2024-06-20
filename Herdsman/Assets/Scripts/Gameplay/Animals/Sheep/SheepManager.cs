@@ -27,7 +27,7 @@ namespace Gameplay.Animals.Sheep
         private Transform _yardTransform;
         private Transform _playerTransform;
         
-        public void Init(Transform playerTransform, Transform yardTransform)
+        public void Initialize(Transform playerTransform, Transform yardTransform)
         {
             _yardTransform = yardTransform;
             _playerTransform = playerTransform;
@@ -38,11 +38,7 @@ namespace Gameplay.Animals.Sheep
             _factory = new WhiteSheepFactory(sheepPrefab);
             _sheeps = new List<SheepBase>();
 
-            for (int i = 0; i < initialSheepCount; i++)
-            {
-                CreateNewSheep();
-            }
-
+            CreateFirstSheeps();
             _spawnCoroutine = StartCoroutine(SpawnSheepRoutine());
         }
 
@@ -96,6 +92,14 @@ namespace Gameplay.Animals.Sheep
 
             SheepBase sheepInstance = _factory.CreateSheep(GenerateNewPatrolPoint(), _playerTransform, this);
             _sheeps.Add(sheepInstance);
+        }
+       
+        private void CreateFirstSheeps()
+        {
+            for (int i = 0; i < initialSheepCount; i++)
+            {
+                CreateNewSheep();
+            }
         }
 
         private Vector3 GenerateNewPatrolPoint()

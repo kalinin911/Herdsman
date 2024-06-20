@@ -1,6 +1,6 @@
 ﻿namespace UI.SheepCounter
 {
-    public class SheepCounterModel
+    public class SheepCounterWindowModel
     {
         private int _amount;
 
